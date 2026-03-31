@@ -67,4 +67,7 @@ async def on_ready():
     client.loop.create_task(update_loop())
 
 
-client.run(TOKEN)
+TOKEN = os.getenv("TOKEN")
+
+if not TOKEN:
+    raise ValueError("TOKEN environment variable is missing!")
